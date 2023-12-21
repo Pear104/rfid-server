@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, where } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import {
   collection,
   getDocs,
@@ -8,11 +8,11 @@ import {
   doc,
   updateDoc,
   addDoc,
-  getDoc,
+  where,
 } from 'firebase/firestore';
 
 @Injectable()
-export class StudentRepository {
+export class AttendanceRepository {
   public db;
   constructor() {
     const firebaseConfig = {
@@ -28,31 +28,23 @@ export class StudentRepository {
     this.db = getFirestore(application);
   }
 
-  async findOne(id) {
-    return (
-      await getDocs(
-        query(collection(this.db, 'student'), where('id', '==', id)),
-      )
-    ).docs[0].data();
+  async findOne(role, key, value) {
+    const data = (
+      await getDocs(query(collection(this.db, role), where(key, '==', value)))
+    ).docs[0];
+    return {
+      ...data.data(),
+      dbId: data.id,
+    };
   }
 
-  async findAll() {
-    return (await getDocs(collection(this.db, 'student'))).docs.map((item) =>
+  async findAll(role) {
+    return (await getDocs(collection(this.db, role))).docs.map((item) =>
       item.data(),
     );
   }
 
-  async create(data) {
-    try {
-      await addDoc(collection(this.db, 'student'), data);
-      return {
-        message: 'add student succesfully',
-        data: data,
-      };
-    } catch (error) {
-      return {
-        messeage: error,
-      };
-    }
+  async checkAttendance(role, dbId, data) {
+    await updateDoc(doc(this.db, role, dbId), data);
   }
 }

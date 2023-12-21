@@ -1,0 +1,53 @@
+### Get one student info
+GET http://localhost:3000/student?id=se182338
+
+### Get all student info
+GET http://localhost:3000/student/all
+
+### Create new student
+POST http://localhost:3000/student/create
+Content-Type: application/json
+
+{
+    "uid": "n4 e3 d9 a0",
+    "name": "Tran Van A",
+    "id": "HS001"
+}
+
+### Get one lecturer info
+GET http://localhost:3000/lecturer?id=se182338
+
+### Get all lecturer info
+GET http://localhost:3000/lecturer/all
+
+### Create new lecturer
+POST http://localhost:3000/lecturer/create
+Content-Type: application/json
+
+{
+    "uid": "d2 f9 8c 3o",
+    "name": "Nguyen Thi C",
+    "id": "GV002"
+}
+
+### Get attendance
+GET http://localhost:3000/attendance/lecturer?uid=d2 f9 8c 3o
+
+### Get all attendance
+GET http://localhost:3000/attendance/lecturer/all
+
+### Check attendance
+POST http://localhost:3000/attendance/lecturer
+Content-Type: application/json
+
+{
+    "uid": "d2 f9 8c 3o"
+}
+### Check attendance
+POST http://localhost:3000/attendance/student
+Content-Type: application/json
+
+{
+    "uid": "n4 e3 d9 a0"
+}
+

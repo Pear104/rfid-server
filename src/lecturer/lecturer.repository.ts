@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, where } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import {
   collection,
   getDocs,
@@ -9,10 +9,11 @@ import {
   updateDoc,
   addDoc,
   getDoc,
+  where,
 } from 'firebase/firestore';
 
 @Injectable()
-export class StudentRepository {
+export class LecturerRepository {
   public db;
   constructor() {
     const firebaseConfig = {
@@ -31,22 +32,22 @@ export class StudentRepository {
   async findOne(id) {
     return (
       await getDocs(
-        query(collection(this.db, 'student'), where('id', '==', id)),
+        query(collection(this.db, 'lecturer'), where('id', '==', id)),
       )
     ).docs[0].data();
   }
 
   async findAll() {
-    return (await getDocs(collection(this.db, 'student'))).docs.map((item) =>
+    return (await getDocs(collection(this.db, 'lecturer'))).docs.map((item) =>
       item.data(),
     );
   }
 
   async create(data) {
     try {
-      await addDoc(collection(this.db, 'student'), data);
+      await addDoc(collection(this.db, 'lecturer'), data);
       return {
-        message: 'add student succesfully',
+        message: 'add lecturer succesfully',
         data: data,
       };
     } catch (error) {
@@ -54,5 +55,17 @@ export class StudentRepository {
         messeage: error,
       };
     }
+  }
+
+  async updateOne() {
+    return 1;
+  }
+
+  async deleteOne() {
+    return 1;
+  }
+
+  async deleteAll() {
+    return 1;
   }
 }
