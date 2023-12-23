@@ -51,3 +51,7 @@ Content-Type: application/json
     "uid": "n4 e3 d9 a0"
 }
 
+### Test deploy
+GET https://rfid-server.vercel.app/student?id=HS001
+
+
