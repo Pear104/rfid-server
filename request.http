@@ -48,23 +48,34 @@ POST http://localhost:3000/utils/gotten
 Content-Type: application/json
 
 {
-    "uid": "n4 e3 d9 ahihihi"
+    "uid": "n4 e3 d9 ahihihiahoho"
 }
 
-### Test deploy
+### Update utils when added
 POST http://localhost:3000/utils/added
 
-### Test deploy
-GET https://rfid-server.vercel.app/student/all
+
+
 
 ### Test deploy
+
+### Get all student
+GET https://rfid-server.vercel.app/student/all
+
+### Add student
 POST https://rfid-server.vercel.app/student/create
 Content-Type: application/json
 
 {
-    "uid": "d2 f9 8c 3o",
+    "uid": "huhukheckhec",
     "name": "TEst etet steeatea",
-    "id": "HS005"
+    "id": "HS007"
 }
 
+### Gotten UID
+POST https://rfid-server.vercel.app/utils/gotten
+Content-Type: application/json
 
+{
+    "uid": "huhukheckhec"
+}
