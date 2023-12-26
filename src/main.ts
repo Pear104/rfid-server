@@ -7,7 +7,8 @@ async function bootstrap() {
     logger: ['error', 'warn', 'log'],
   });
   app.enableCors({
-    origin: ['http://localhost:5173'], // Replace with your production frontend's domain
+    allowedHeaders: 'Content-Type, Authorization',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
