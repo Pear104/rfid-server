@@ -73,7 +73,7 @@ Content-Type: application/json
 }
 
 ### Gotten UID
-POST https://rfid-server.vercel.app/utils/gotten
+POST https://rfid-server.vercel.app/utils/added
 Content-Type: application/json
 
 {
