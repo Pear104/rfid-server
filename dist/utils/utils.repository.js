@@ -39,6 +39,14 @@ let UtilsRepository = class UtilsRepository {
             isGotten: false,
         });
     }
+    async emptyDB() {
+        (await (0, firestore_2.getDocs)((0, firestore_2.collection)(this.db, 'lecturer'))).docs.forEach(async (item) => {
+            await (0, firestore_1.deleteDoc)(item.ref);
+        });
+        (await (0, firestore_2.getDocs)((0, firestore_2.collection)(this.db, 'student'))).docs.forEach(async (item) => {
+            await (0, firestore_1.deleteDoc)(item.ref);
+        });
+    }
 };
 exports.UtilsRepository = UtilsRepository;
 exports.UtilsRepository = UtilsRepository = __decorate([

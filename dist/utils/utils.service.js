@@ -29,6 +29,9 @@ let UtilsService = class UtilsService {
     async added() {
         return this.utilsRepo.added();
     }
+    async emptyDB() {
+        return this.utilsRepo.emptyDB();
+    }
 };
 exports.UtilsService = UtilsService;
 exports.UtilsService = UtilsService = __decorate([

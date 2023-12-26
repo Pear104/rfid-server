@@ -5,4 +5,5 @@ export declare class UtilsController {
     getDBState(): Promise<import("@firebase/firestore").DocumentData>;
     getUID(body: any): Promise<void>;
     postAdded(body: any): Promise<void>;
+    emptyDB(): Promise<void>;
 }

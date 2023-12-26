@@ -28,6 +28,9 @@ let UtilsController = class UtilsController {
     postAdded(body) {
         return this.utilsService.added();
     }
+    emptyDB() {
+        return this.utilsService.emptyDB();
+    }
 };
 exports.UtilsController = UtilsController;
 __decorate([
@@ -50,6 +53,12 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UtilsController.prototype, "postAdded", null);
+__decorate([
+    (0, common_1.Post)('emptydb'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UtilsController.prototype, "emptyDB", null);
 exports.UtilsController = UtilsController = __decorate([
     (0, common_1.Controller)('utils'),
     __metadata("design:paramtypes", [utils_service_1.UtilsService])

@@ -19,4 +19,8 @@ export class UtilsService {
   async added() {
     return this.utilsRepo.added();
   }
+
+  async emptyDB() {
+    return this.utilsRepo.emptyDB();
+  }
 }

@@ -16,4 +16,8 @@ export class UtilsController {
   postAdded(@Body() body: any) {
     return this.utilsService.added();
   }
+  @Post('emptydb')
+  emptyDB() {
+    return this.utilsService.emptyDB();
+  }
 }

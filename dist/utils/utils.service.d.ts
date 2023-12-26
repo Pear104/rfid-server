@@ -5,4 +5,5 @@ export declare class UtilsService {
     getDBState(): Promise<import("@firebase/firestore").DocumentData>;
     gotten(uid: any): Promise<void>;
     added(): Promise<void>;
+    emptyDB(): Promise<void>;
 }

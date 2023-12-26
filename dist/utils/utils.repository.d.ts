@@ -4,4 +4,5 @@ export declare class UtilsRepository {
     getDBState(): Promise<import("@firebase/firestore").DocumentData>;
     gotten(data: any): Promise<void>;
     added(): Promise<void>;
+    emptyDB(): Promise<void>;
 }

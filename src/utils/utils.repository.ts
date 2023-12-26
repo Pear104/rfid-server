@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, where } from 'firebase/firestore';
+import { deleteDoc, getFirestore, where } from 'firebase/firestore';
 import {
   collection,
   getDocs,
@@ -40,5 +40,18 @@ export class UtilsRepository {
     await updateDoc(doc(this.db, 'utils', 'xxhkStzhrAcnTGqxJL30'), {
       isGotten: false,
     });
+  }
+
+  async emptyDB() {
+    (await getDocs(collection(this.db, 'lecturer'))).docs.forEach(
+      async (item) => {
+        await deleteDoc(item.ref);
+      },
+    );
+    (await getDocs(collection(this.db, 'student'))).docs.forEach(
+      async (item) => {
+        await deleteDoc(item.ref);
+      },
+    );
   }
 }
