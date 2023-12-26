@@ -11,7 +11,7 @@ Content-Type: application/json
 {
     "uid": "n4 e3 d9 a0",
     "name": "Tran Van A",
-    "id": "HS001"
+    "id": "HS005"
 }
 
 ### Get one lecturer info
@@ -43,15 +43,28 @@ Content-Type: application/json
 {
     "uid": "d2 f9 8c 3o"
 }
-### Check attendance
-POST http://localhost:3000/attendance/student
+### Admin upload UID
+POST http://localhost:3000/utils/gotten
 Content-Type: application/json
 
 {
-    "uid": "n4 e3 d9 a0"
+    "uid": "n4 e3 d9 ahihihi"
 }
 
 ### Test deploy
-GET https://rfid-server.vercel.app/student?id=HS001
+POST http://localhost:3000/utils/added
+
+### Test deploy
+GET https://rfid-server.vercel.app/student/all
+
+### Test deploy
+POST https://rfid-server.vercel.app/student/create
+Content-Type: application/json
+
+{
+    "uid": "d2 f9 8c 3o",
+    "name": "TEst etet steeatea",
+    "id": "HS005"
+}
 
 

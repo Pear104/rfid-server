@@ -1,9 +1,13 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { StudentRepository } from './student.repository';
+import { UtilsRepository } from 'src/utils/utils.repository';
 
 @Injectable()
 export class StudentService {
-  constructor(public studentRepo: StudentRepository) {}
+  constructor(
+    public studentRepo: StudentRepository,
+    public utilsRepo: UtilsRepository,
+  ) {}
   async findOne(id) {
     try {
       return {
@@ -26,6 +30,7 @@ export class StudentService {
     if (exist.err == 0) {
       throw new BadRequestException('Id already existed');
     }
+    await this.utilsRepo.added();
     return await this.studentRepo.create(data);
   }
 }
